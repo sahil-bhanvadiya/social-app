@@ -1,11 +1,9 @@
-import './Global.scss';
-import BasicButtons from './components/Button';
-function App() {
-  return (
-    <div className="App">
-      <BasicButtons></BasicButtons>
-    </div>
-  );
-}
+import { FC } from "react";
+import "./Global.scss";
+import DefinedRoutes from "./routes/Routes";
+
+const App: FC = () => {
+  return <DefinedRoutes />;
+};
 
 export default App;
