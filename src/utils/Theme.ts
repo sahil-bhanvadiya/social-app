@@ -1,13 +1,19 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export const Theme = createTheme({
-    palette: {
-        mode: 'light',
-        primary: {
-          main: '#5093a0',
-        },
-        secondary: {
-          main: '#f50057',
-        },
-      },
-  });
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#5093a0",
+    },
+  },
+});
+
+export const SignUpTheme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#ffea00",
+    },
+  },
+});

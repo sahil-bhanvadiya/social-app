@@ -1,10 +1,11 @@
 import { ReactNode, FC } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
-import Login from "../views/Login";
 import HomePage from "../views/HomePage";
 import { isAuth } from "../app/slices/authSlice";
-
+import SignUp from "../views/SignUp";
+import { ThemeProvider } from "@mui/material/styles";
+import { SignUpTheme } from "../utils/Theme";
 type Props = { children: ReactNode };
 
 const PrivateRoute: FC<Props> = ({ children }) => {
@@ -24,7 +25,9 @@ const DefinedRoutes = () => {
         path="/login"
         element={
           <PreventLogInRoute>
-            <Login />
+            <ThemeProvider theme={SignUpTheme}>
+              <SignUp />
+            </ThemeProvider>
           </PreventLogInRoute>
         }
       />
@@ -32,7 +35,9 @@ const DefinedRoutes = () => {
         path="/signup"
         element={
           <PreventLogInRoute>
-            <Login />
+            <ThemeProvider theme={SignUpTheme}>
+              <SignUp />
+            </ThemeProvider>
           </PreventLogInRoute>
         }
       />
