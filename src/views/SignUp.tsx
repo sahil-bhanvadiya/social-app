@@ -10,7 +10,7 @@ import {
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../app/hooks";
-import { login, logInApi, signUpApi } from "../app/slices/authSlice";
+import { logInApi, signUpApi } from "../app/slices/authSlice";
 import "./SignUp.scss";
 import { auth } from "../utils/interfaces/authInterface";
 import axios from "axios";
