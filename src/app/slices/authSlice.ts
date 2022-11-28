@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../store";
 import { auth } from "../../utils/interfaces/authInterface";
 import axios from "axios";
-
+import Api from "../../utils/apiPaths";
 export interface CounterState {
   isAutheticated: boolean;
   user: {};
-  token: undefined | String;
+  token: undefined | string;
 }
 
 const initialState: CounterState = {
@@ -39,11 +39,9 @@ export const authSlice = createSlice({
 export const signUpApi =
   (body: auth): AppThunk =>
   (dispatch) => {
+    const url: string = `${process.env.REACT_APP_BASE_URL + Api.register}`;
     axios
-      .post(
-        "https://a77b-2401-4900-5631-ccb2-db15-3ac1-6cf8-d192.in.ngrok.io/api/registration",
-        body
-      )
+      .post(url, body, {headers:{"Content-Type" : "application/json"}})
       .then((res) => {
         dispatch(login(res));
       })
@@ -53,11 +51,9 @@ export const signUpApi =
 export const logInApi =
   (body: auth): AppThunk =>
   (dispatch) => {
+    const url: string = `${process.env.REACT_APP_BASE_URL + Api.login}`;
     axios
-      .post(
-        "https://a77b-2401-4900-5631-ccb2-db15-3ac1-6cf8-d192.in.ngrok.io/api/login",
-        body
-      )
+      .post(url, body, {headers:{"Content-Type" : "application/json"}})
       .then((res) => {
         dispatch(login(res));
       })
